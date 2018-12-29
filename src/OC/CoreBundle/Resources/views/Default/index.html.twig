@@ -7,36 +7,35 @@
   <body>
     <div class="container">
       <div id="header" class="jumbotron">
-        <h1>Offre de Stage</h1>
+        <h1>Bienvenue sur la Plateforme Simplon!</h1>
         <p> projet fait sous Symfony 3!</p>
         <p>
           <a class="btn btn-primary btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony">
             Cours OC!
           </a>
-           <a class="btn btn-primary btn-lg" href="{{ path('oc_core_homepage') }}">
-            Accueil
-          </a>
         </p>
       </div>
 
+      <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('info') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+      </div>
+
+
       <div class="row">
         <div id="menu" class="col-md-3">
-          <h3>Les Annonces!</h3>
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{ path('oc_platform_home') }}">Accueil</a></li>
-            <li><a href="{{ path('oc_platform_add') }}">Ajouter une Annonce</a></li>
-          </ul>
-
           <h4>Dernières Annonces</h4>
           {{ render(controller("OCPlatformBundle:Advert:menu", {'limit':3} )) }}
         </div>
         <div id="content" class="col-md-9">
 
-    <h2>Annonces</h2>
+    <h2>Outils</h2>
 
     <hr>
 
-    {% block ocplatform_body %}
-    {% endblock %}
+    <h3><a href="{{ path('oc_platform_home') }}"> Les Annonces</a></h3>
+    <h3><a href="{{ path('oc_core_contact') }}">Contact</a></h3>
 
 {% endblock %}

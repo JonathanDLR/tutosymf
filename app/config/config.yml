@@ -37,6 +37,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -71,3 +73,9 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+# Stof Configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true

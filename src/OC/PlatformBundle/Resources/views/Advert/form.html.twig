@@ -1,5 +1,62 @@
 <h3>Formulaire d'Annonce</h3>
 
 <div class="well">
-    Ici le Formulaire
+    {{ form(form) }}
+
+    {{ form_row(form.categories) }}
+    <a href="#" id="add_category" class="btn btn-default">Ajouter une catégorie</a>
 </div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+{# <script type="text/javascript">
+    $(document).ready(function() {
+        var $container = $("#oc_platformbundle_advert_categories");
+
+        var index = $container.find(':input').length;
+
+        $("#add_category").on('click', function(e) {
+            addCategory($container);
+            e.preventDefault();
+            return false;
+        });
+
+        if (index == 0) {
+            addCategory($container);
+        } else {
+            $container.children('div').each(function() {
+                addDeleteLinks($(this));
+            });
+        }
+
+        function addCategory($container) {
+            var template = $container.attr('data-prototype')
+                .replace(/__name__label__/g, 'Catégorie n°' + (index+1))
+                .replace(/__name__/g, index);
+
+            var $prototype = $(template);
+
+            addDeleteLinks($prototype);
+
+            $container.append($prototype);
+
+            index++;
+        }
+
+        function addDeleteLinks($prototype) {
+            var $deleteLinks = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+
+            $prototype.append($deleteLinks);
+
+            $deleteLinks.on('click', function(e) {
+                $prototype.remove();
+                e.preventDefault;
+                return false;
+            });
+        }
+    });
+</script> #}
